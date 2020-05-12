@@ -1,0 +1,8 @@
+<div class="col-md-8 col-md-offset-2">
+  <% @tasks.each do |task| %>
+    <h2><%= link_to task.title, task %></h2>
+    <p><%= task.description %></p>
+  <% end %>
+
+  <%= link_to "New Task", new_task_path %>
+</div>

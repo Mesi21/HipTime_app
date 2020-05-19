@@ -14,5 +14,125 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@mixin nav_link_hover {
+  transition: 0.4s;
+  color: lighten(#222, 50%);
+  text-decoration: none;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #f9e8d4;
+}
+
+a {
+  color: darken(#e7e7e7, 70%);
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+.navbar {
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+}
+
+.navbar-default {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #d9534f;
+
+  .navbar-nav > li > a {
+    color: #fff;
+  }
+
+  .navbar-link {
+    color: #fff;
+  }
+
+  .navbar-brand {
+    color: #fff;
+    letter-spacing: 1.25px;
+    font-size: 2.1em;
+  }
+}
+
+.task {
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 1.5em;
+  .task-title {
+    font-family: "Lato", sans-serif;
+    margin-top: 0;
+  }
+  .task-desc {
+    font-size: 1em;
+  }
+  .time-ago {
+    color: darken(#e7e7e7, 50%);
+    font-size: 0.55em;
+    letter-spacing: 1.25;
+  }
+  .task-sub-title {
+    margin-bottom: 0;
+  }
+}
+
+.task:nth-child(n + 1) {
+  padding-top: 1.5em;
+}
+
+.bottom_cta {
+  text-align: center;
+  padding: 7.5rem 0;
+  h2 {
+    color: #2b2e2e;
+    font-size: 3rem;
+    margin: 0;
+  }
+  p {
+    font-size: 1.25rem;
+    margin: 0 0 2.5rem 0;
+    color: #a7a8a8;
+  }
+}
+
+.testimonial {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #afb0b0;
+  padding: 3.5rem 0;
+  .quote {
+    margin: 0 0 0.5rem 0;
+  }
+  .name {
+    color: #2b2e2e;
+    margin: 0;
+    font-size: 0.85rem;
+  }
+}
+
+.footer {
+  background: #2b2e2e;
+  width: 100%;
+  padding: 2rem 0;
+  color: #fff;
+  text-align: center;
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+}
+
+button,
+.button {
+  border: none;
+  outline: none;
+  background: #d9534f;
+  padding: 1rem 3.5rem;
+  border-radius: 0.1rem;
+  color: #fff;
+}

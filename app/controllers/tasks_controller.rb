@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
-  before_action :find_task, only: [:show, :edit, :update, :destroy]
+  before_action :find_task, only: %i[show edit update destroy]
 
   def index
-    if user_signed_in?
-      @tasks = Task.where(:user_id => current_user.id).order("created_at DESC")
-    end
+    @tasks = Task.where(user_id: current_user.id).order('created_at DESC') if user_signed_in?
   end
 
   def new
@@ -14,17 +14,15 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.build(task_params)
     if @task.save
-        redirect_to root_path
+      redirect_to root_path
     else
-        render 'new'
+      render 'new'
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @task.update(task_params)

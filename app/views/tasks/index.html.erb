@@ -1,0 +1,47 @@
+<% if user_signed_in? %>
+	<div class="col-md-10 col-md-offset-1">
+		<% @tasks.each do |task| %> 
+			<div class="index-wrapper">
+				<% if task.completed? %>
+					<div class="row task">
+						<div class="col-md-2">
+							<p><%= link_to complete_task_path(task), method: :patch do %></p>
+								<i class="fa fa-check fa-lg"></i>
+							<% end %>
+						</div>			
+						<div class="col-md-2">
+							<p><%= link_to task, method: :delete, data: { confirm: "Are you sure?" } do %></p>
+								<i class="fa fa-trash fa-lg"></i>
+							<% end %>
+						</div>
+						<div class="col-md-8">
+							<h2 style="opacity: 0.5;" class="task-title"><strike><%= link_to task.title, task %></strike></h2>
+							<p style="opacity: 0.5;" class="task-sub-title task-desc"><%= task.description %></p>
+							<p style="opacity: 0.5;" class="time-created-at task-sub-title">Completed <%= time_ago_in_words(task.completed_at) %> ago</p>
+						</div>
+					</div>
+				<% else %>
+					<div class="row task">
+						<div class="col-md-2">
+							<p><%= link_to complete_task_path(task), method: :patch do %></p>
+								<i class="fa fa-check fa-lg"></i>
+							<% end %>
+						</div>
+						<div class="col-md-8">
+							<h2 class="task-title"><%= link_to task.title, task %></h2>
+							<p class="task-sub-title task-desc"><%= task.description %></p>
+							<p style="opacity: 0.5;" class="time-created-at task-sub-title">Created <%= time_ago_in_words(task.created_at) %> ago</p>
+						</div>
+						<div class="col-md-2">
+							<p><%= link_to task, method: :delete, data: { confirm: "Are you sure?" } do %></p>
+								<i class="fa fa-trash fa-lg"></i>
+							<% end %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		<% end %>	
+	</div>
+<% else %>
+	<%= render 'welcome_page' %>
+<% end %>	

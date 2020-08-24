@@ -2,7 +2,7 @@
 
 # Picture Cabinet
 
-This is a Todo-like app made as part of an online course.
+A Todo-like app made as part of an online course.
 
 ## Contribution guide
 
